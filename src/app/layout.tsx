@@ -4,9 +4,9 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  title: "Rate My Server - Discover and Monitor Game Servers Worldwide",
+  title: "Discover and Monitor Game Servers Worldwide",
   description:
-    "Explore thousands of game servers across various platforms. Track uptime, read reviews, and find the best servers to play on. Claim your server and grow your community with our comprehensive tools.",
+    "Track uptime, read feedback, and discover the best game servers. Claim yours and join a global gaming network.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
