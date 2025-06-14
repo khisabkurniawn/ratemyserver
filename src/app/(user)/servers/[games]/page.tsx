@@ -7,6 +7,7 @@ export default async function Page({
 
   return (
     <div>
+      <div>{games}</div>
       <div>Game Header Logo + Nama Game + Deskripsi singkat</div>
       <div>
         Filter Bar Region, Version (jika ada), Mode (e.g. Survival, Factions),

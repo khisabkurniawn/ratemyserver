@@ -18,7 +18,7 @@ export default function NavbarUser() {
         <div className="flex flex-row justify-between py-3">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-4 w-4" />
               </Button>
             </SheetTrigger>
@@ -90,7 +90,7 @@ export default function NavbarUser() {
             >
               <Link href="login">Login</Link>
             </Button>
-            <Button variant="outline" size="icon" className="md:hidden">
+            <Button variant="ghost" size="icon" className="md:hidden">
               <LogIn className="h-4 w-4" />
             </Button>
             <Button variant="ghost" size="sm" asChild>
