@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function FooterUser() {
   return (
-    <footer className="space-y-4 py-8 font-sans text-xs font-light">
+    <footer className="space-y-4 px-4 py-8 font-sans text-xs font-light">
       <div className="flex flex-wrap gap-x-2 gap-y-1 text-gray-500">
         <Link href="leaderboard" className="hover:underline">
           Leaderboard

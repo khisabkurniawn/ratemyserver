@@ -1,3 +1,4 @@
+import { getDictionary } from "@/app/[lang]/dictionaries";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -19,23 +20,48 @@ const invoices = [
   { invoice: "INV005" },
 ];
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ lang: "en" | "zh" }>;
+}) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+
   return (
     <div className="grid grid-cols-6 gap-8">
       <Tabs
         defaultValue="mje"
         className="col-span-6 space-y-8 md:col-span-6 lg:col-span-4 xl:col-span-4"
       >
-        <TabsList>
-          <TabsTrigger value="mje">Minecraft: Java Edition</TabsTrigger>
-          <TabsTrigger value="mbe">Minecraft: Bedrock Edition</TabsTrigger>
+        <TabsList className="mx-4 h-32 w-96">
+          <TabsTrigger value="mje">
+            <Image
+              src="/minecraft-background.jpg"
+              width={128}
+              height={128}
+              alt="Minecraft: Java Edition"
+              className="h-full w-full opacity-70 blur-sm brightness-75"
+            />
+            <span className="text-2xl font-bold text-white drop-shadow-lg">
+              Minecraft
+            </span>
+          </TabsTrigger>
+          <TabsTrigger value="mbe">
+            <Image
+              src="/minecraft-background.jpg"
+              width={128}
+              height={128}
+              alt="Minecraft: Bedrock Edition"
+            />
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="mje" className="space-y-8">
           <div className="space-y-4">
-            <div className="flex flex-row space-x-2">
+            <div className="flex flex-row space-x-2 px-4">
               <Flame className="my-auto size-6" />{" "}
               <span className="text-xl font-bold text-gray-900">
-                Trending Today
+                {dict.home.trendingtoday}
               </span>
             </div>
             <Table>
@@ -43,7 +69,7 @@ export default function Home() {
                 {invoices.map((invoice) => (
                   <TableRow
                     key={invoice.invoice}
-                    className="rounded-xl border-none hover:bg-gray-50"
+                    className="rounded-xl border-none bg-gray-50 hover:bg-gray-100"
                   >
                     <TableCell className="w-24">
                       <Image
@@ -51,7 +77,7 @@ export default function Home() {
                         width={64}
                         height={64}
                         alt="Logo ServerName"
-                        className="mx-auto ml-2.5"
+                        className="mx-auto ml-2"
                       />
                     </TableCell>
                     <TableCell className="flex flex-col space-y-2">
@@ -64,6 +90,7 @@ export default function Home() {
                         width={468}
                         height={60}
                         alt="Banner ServerName"
+                        unoptimized={true}
                       />
                       <div className="text-xs font-light text-gray-500">
                         Category, Category, Category

@@ -14,7 +14,7 @@ import {
 export default function NavbarUser() {
   return (
     <header className="sticky top-0 z-10 border-b bg-white transition-all">
-      <div className="mx-auto max-w-screen-lg px-8 md:px-16 lg:px-32 xl:px-0">
+      <div className="mx-auto max-w-screen-lg px-8 md:px-16 lg:px-32 xl:px-4">
         <div className="flex flex-row justify-between py-3">
           <Sheet>
             <SheetTrigger asChild>
@@ -27,7 +27,7 @@ export default function NavbarUser() {
                 <SheetTitle>
                   <Link href="/" className="my-auto">
                     <Image
-                      src="/logoipsum.png"
+                      src="/ratemyserver.png"
                       width={400}
                       height={76}
                       alt="Logo ratemyserver.org"
@@ -104,6 +104,12 @@ export default function NavbarUser() {
                 <AvatarFallback>R</AvatarFallback>
               </Avatar>
             </Link>
+          </div>
+
+          <div className="space-x-2">
+            <Link href="/en">English</Link>
+            <span>|</span>
+            <Link href="/zh">Chinese/中文</Link>
           </div>
         </div>
       </div>

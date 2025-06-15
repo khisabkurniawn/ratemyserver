@@ -9,9 +9,19 @@ export const metadata: Metadata = {
     "Track uptime, read feedback, and discover the best game servers. Claim yours and join a global gaming network.",
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "zh" }];
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: Readonly<{
+  children: React.ReactNode;
+  params: Promise<{ lang: "en" | "zh" }>;
+}>) {
   return (
-    <html lang="en">
+    <html lang={(await params).lang}>
       <body className="antialiased">
         {children}
         <Analytics />
